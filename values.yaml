@@ -1,0 +1,6 @@
+Deployment:
+  replicas: 1
+  imageVersion: nginx:latest
+Service:
+  type: LoadBalancer
+  servicePort: 80

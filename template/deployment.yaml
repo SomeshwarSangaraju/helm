@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chart-demo
+  labels:
+    purpose: templatise the manifest files
+    project: roboshop
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      purpose: templatise the manifest files
+      project: roboshop
+  template:
+    metadata:
+      name: chart-demo
+      labels:
+        purpose: templatise the manifest files
+        project: roboshop
+    spec:
+      container:
+      - name: nginx
+        image: {{ .Values.deployment.imageVersion }}
